@@ -29,7 +29,10 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.152411332242-6igead01lc7d52295bs775vgf6jlcaai</string>
+				<!-- Replace with REVERSED_CLIENT_ID from your own
+				     GoogleService-Info.plist. Google Sign-In on iOS cannot
+				     return to the app without it. See README, step 3. -->
+				<string>com.googleusercontent.apps.YOUR-REVERSED-CLIENT-ID</string>
 			</array>
 		</dict>
 	</array>

@@ -154,6 +154,27 @@ Then, in the [Firebase console](https://console.firebase.google.com):
 4. **Cloud Messaging** → for iOS, upload an APNs key from your Apple Developer
    account.
 
+Two more steps that Google Sign-In will not work without, and which are easy to
+miss because the app builds fine without them and only fails at the moment
+someone taps *Sign in with Google*:
+
+**Android — register your signing fingerprint.** Google checks that the app
+asking to sign in is really yours, by its certificate.
+
+```bash
+cd android && ./gradlew signingReport
+```
+
+Copy the **SHA-1** from the `debug` variant into Firebase console → *Project
+settings* → your Android app → *Add fingerprint*, then download the refreshed
+`google-services.json`. Repeat with your release certificate's SHA-1 before you
+ship anything.
+
+**iOS — set the URL scheme.** Open your own `ios/Runner/GoogleService-Info.plist`,
+copy the `REVERSED_CLIENT_ID` value, and paste it into `ios/Runner/Info.plist`
+in place of the `com.googleusercontent.apps.YOUR-REVERSED-CLIENT-ID` placeholder.
+Without it, Google Sign-In opens and then has no way back into the app.
+
 > **Security rules are not in this repository.** Firestore starts in a locked or
 > wide-open state depending on the mode you choose, and neither is right for
 > production. Write rules that let a user read and write only the groups they
@@ -165,9 +186,26 @@ Then, in the [Firebase console](https://console.firebase.google.com):
 flutter run
 ```
 
-Android needs nothing further. For iOS, open `ios/Runner.xcworkspace` in Xcode
-and set **Signing & Capabilities → Team** to your own Apple developer team — the
-original team ID was removed from this repository on purpose.
+For iOS, open `ios/Runner.xcworkspace` in Xcode first and set **Signing &
+Capabilities → Team** to your own Apple developer team — the original team ID
+was removed from this repository on purpose. Add the **Sign in with Apple**
+capability there too.
+
+<details>
+<summary>If the Android build complains about a missing <code>gradlew</code></summary>
+
+Flutter's own `android/.gitignore` excludes `gradlew`, `gradlew.bat` and
+`gradle-wrapper.jar`, so they are not in this repository — by design, because
+the Flutter tool normally writes them itself on the first build. When it does
+not, generate them once:
+
+```bash
+cd android
+gradle wrapper --gradle-version 8.14
+```
+
+Or `flutter clean && flutter pub get` and build again.
+</details>
 
 ### 5. Cloud Functions (optional)
 
@@ -206,7 +244,8 @@ Beyond the Firebase project, change these:
 | --- | --- |
 | Application ID | `android/app/build.gradle.kts`, `namespace` and `applicationId` |
 | Bundle identifier | `ios/Runner.xcodeproj`, via Xcode |
-| Invite link domain | `_inviteLinkBase` in `lib/features/groups/data/group_service.dart` |
+| Invite link domain | `_inviteLinkBase` in `lib/features/groups/data/group_service.dart`, and `android:host` in `android/app/src/main/AndroidManifest.xml` |
+| Google URL scheme | `CFBundleURLSchemes` in `ios/Runner/Info.plist` |
 | Hosting targets | `firebase.json` |
 | App-link verification | `public/.well-known/assetlinks.json` (your signing SHA-256) and `apple-app-site-association` (your team ID) |
 | In-app purchase IDs | `lib/features/payments/data/iap_service.dart`, and create matching products in App Store Connect / Play Console |
