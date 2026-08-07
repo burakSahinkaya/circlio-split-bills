@@ -209,7 +209,12 @@ Or `flutter clean && flutter pub get` and build again.
 
 ### 5. Cloud Functions (optional)
 
-Push notifications need these deployed; everything else works without them.
+Push notifications need these deployed; everything else — groups, expenses,
+balances, settling up — works without them on Firebase's free Spark plan.
+
+> Deploying functions requires the **Blaze** (pay-as-you-go) plan. It has a free
+> monthly allowance that a project this size stays well inside, but it does ask
+> for a card. Skip this section entirely if you only want to run the app.
 
 ```bash
 cd functions
