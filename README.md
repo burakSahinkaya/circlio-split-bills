@@ -17,7 +17,15 @@
   <a href="https://apps.apple.com/us/app/circlio-split-bills/id6761620867">App Store</a>
 </p>
 
-<!-- SCREENSHOTS -->
+<p align="center">
+  <img src="docs/screenshots/groups.png" alt="Group list with per-group balances" width="270">
+  <img src="docs/screenshots/activity.png" alt="Group activity feed with pending payments" width="270">
+  <img src="docs/screenshots/balances.png" alt="Individual balances within a group" width="270">
+</p>
+
+> The app ships under the name **Circlio** on the stores; **SplitCircle** is its
+> original name and is still what the code, the bundle identifier and the
+> screenshots above use.
 
 Circlio was built, published to the App Store and Play Store, and is now open
 source. Everyone in a group adds what they paid; the app keeps a running balance
