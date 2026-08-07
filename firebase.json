@@ -4,7 +4,11 @@
   },
   "hosting": {
     "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "headers": [
       {
         "source": "/.well-known/apple-app-site-association",
@@ -22,33 +26,5 @@
         "destination": "/invite/index.html"
       }
     ]
-  },
-  "flutter": {
-    "platforms": {
-      "android": {
-        "default": {
-          "projectId": "splitcircle-7e06e",
-          "appId": "1:152411332242:android:f35b1a75cfbffe933a904b",
-          "fileOutput": "android/app/google-services.json"
-        }
-      },
-      "ios": {
-        "default": {
-          "projectId": "splitcircle-7e06e",
-          "appId": "1:152411332242:ios:79902cf1fc84b53e3a904b",
-          "uploadDebugSymbols": false,
-          "fileOutput": "ios/Runner/GoogleService-Info.plist"
-        }
-      },
-      "dart": {
-        "lib/firebase_options.dart": {
-          "projectId": "splitcircle-7e06e",
-          "configurations": {
-            "android": "1:152411332242:android:f35b1a75cfbffe933a904b",
-            "ios": "1:152411332242:ios:79902cf1fc84b53e3a904b"
-          }
-        }
-      }
-    }
   }
 }
