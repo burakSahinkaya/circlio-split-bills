@@ -1,0 +1,16 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.splitcircle.splitCircle",
+      "sha256_cert_fingerprints": [
+        "D1:53:60:F8:6F:6C:94:8A:8A:6B:22:E9:34:60:4C:BF:DD:85:03:E7:94:0A:94:21:D3:63:54:6D:5A:D2:3C:D4",
+        "83:DD:CF:EE:33:CA:64:C6:15:15:FE:C5:CA:4F:C0:85:C0:C4:4C:48:E3:61:A2:69:E1:1A:23:DC:6F:4C:A1:87"
+      ]
+    }
+  }
+]

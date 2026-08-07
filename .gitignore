@@ -1,0 +1,86 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# ---------------------------------------------------------------------------
+# Added when this project was opened up. Everything below is either a secret,
+# a per-developer file, or something a build regenerates.
+# ---------------------------------------------------------------------------
+
+# Firebase project configuration. These bind the app to one specific Firebase
+# project, so they are not committed: run `flutterfire configure` and the CLI
+# writes your own. See README, "Connect your own Firebase project".
+lib/firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+.firebase/
+
+# Android release signing. The keystore and its passwords must never be
+# committed; losing control of them means someone else can ship updates that
+# Android accepts as yours.
+key.properties
+*.jks
+*.keystore
+
+# Cloud Functions dependencies and build output. package.json describes them,
+# so committing 5,700 files of node_modules only slows every clone down.
+functions/node_modules/
+functions/lib/
+functions/*.log
+
+# Local scratch output, e.g. `flutter devices` redirected to a file. One of
+# these carried device hardware IDs into this repository once already.
+.tmp_*
+*.tmp
+
+# Build output from the platform folders. The root /build/ rule above does not
+# reach these.
+android/build/
+android/.gradle/
+android/app/build/
+ios/build/
+ios/Pods/
+ios/.symlinks/
+**/xcuserdata/
